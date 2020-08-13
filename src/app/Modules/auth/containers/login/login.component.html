@@ -1,23 +1,80 @@
-<div class="wrapper fadeInDown mt-5">
-    <div id="formContent">
-      <!-- Tabs Titles -->
-  
-      <!-- Icon -->
-      <div class="fadeIn first">
-        <img src="../../../../../assets/image/default-logo.png" id="icon" alt="Doce Gão" />
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4">Login Doce Grão</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+            <div class="form-group">
+              <!-- <label class="small mb-1" for="inputEmailAddress">Usuário:</label> -->
+              <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Digíte seu usuário"
+                [ngClass]="{ 'is-invalid': displayMessage.username }" formControlName="username" />
+              <div *ngIf="displayMessage.username" class="invalid-feedback fs-70 mt-0 mb-0">
+                <p class="mb-0" [innerHTML]="displayMessage.username"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- <label class="small mb-1" for="inputPassword">Senha:</label> -->
+              <input class="form-control py-4" id="inputPassword" type="password" placeholder="Difíte sua senha"
+                [ngClass]="{ 'is-invalid': displayMessage.password }" formControlName="password" />
+              <div *ngIf="displayMessage.password" class="invalid-feedback fs-70 mt-0 mb-0">
+                <p class="mb-0" [innerHTML]="displayMessage.password"></p>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+                          <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" /><label class="custom-control-label" for="rememberPasswordCheck">Remember password</label></div>
+                      </div> -->
+            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+              <a class="small" routerLink="/auth/forgot-password">Esqueceu a senha?</a>
+              <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Entrar
+              </button>
+            </div>
+          </form>
+          <!-- <div>{{ loginForm.valid | json}}</div> -->
+        </div>
+        <div class="card-footer text-center">
+          <div class="small"><a routerLink="/auth/register">Precisa de uma conta? Cadastra-se!</a></div>
+        </div>
       </div>
-  
-      <!-- Login Form -->
-      <form>
-        <input type="text" id="txtLogin" class="fadeIn second" name="txtLogin" placeholder="Usuário ou E-mail">
-        <input type="text" id="txtSenha" class="fadeIn third" name="txtSenha" placeholder="Senha">
-        <input type="submit" class="fadeIn fourth" value="Log In">
-      </form>
-  
-      <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <a class="underlineHover" href="#">Esqueceu a senha?</a>
-      </div>
-  
     </div>
   </div>
+</div>
+<!-- <div class="wrapper fadeInDown mt-5">
+  <div id="formContent"> -->
+<!-- Tabs Titles -->
+
+<!-- Icon -->
+<!-- <div class="fadeIn first">
+      <img src="../../../../../assets/image/default-logo.png" id="icon" alt="Doce Gão" />
+    </div> -->
+
+<!-- Login Form -->
+<!-- <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <input formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" type="text"
+        id="txtLogin" class="fadeIn second" name="txtLogin" placeholder="Usuário ou E-mail" />
+      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">Usuário é obrigatório</div>
+      </div>
+
+      <input formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" type="text"
+        id="txtSenha" class="fadeIn third" name="txtSenha" placeholder="Senha" />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Senha é obrigatória</div>
+      </div>
+
+      <input type="submit" class="fadeIn fourth" value="Entrar">
+
+      <div>{{loginForm.valid | json}}</div>
+    </form> -->
+
+<!-- Remind Passowrd -->
+<!-- <div id="formFooter">
+      <a class="underlineHover" href="#">Esqueceu a senha?</a>
+    </div>
+
+  </div>
+</div> -->

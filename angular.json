@@ -104,6 +104,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FrontEnd-DoceGrao"
+    }
+  },
+  "defaultProject": "FrontEnd-DoceGrao",
+  "cli": {
+    "analytics": "e210ec0c-8c56-4183-8cc3-0f6a1e21a83a"
+  }
 }
